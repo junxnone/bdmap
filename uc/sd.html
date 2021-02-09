@@ -27,7 +27,7 @@
 		bounds = new Array();
 		linesPoints = new Array();
 		map.clearOverlays();                                                    // 清空覆盖物
-		var driving3 = new BMap.TransitRoute(map,{onSearchComplete:drawLine});  // 驾车实例,并设置回调
+		var driving3 = new BMap.WalkingRoute(map,{onSearchComplete:drawLine});  // 驾车实例,并设置回调
 			driving3.search(spoi1, epoi);                                       // 搜索一条线路
 		var driving4 = new BMap.TransitRoute(map,{onSearchComplete:drawLine});  // 驾车实例,并设置回调
 			driving4.search(spoi2, epoi);                                       // 搜索一条线路
