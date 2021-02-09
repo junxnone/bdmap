@@ -22,7 +22,7 @@
 	var spoi1 = new BMap.Point(116.380967,39.913285);    // 起点1
 	var spoi2 = new BMap.Point(116.380967,39.953285);    // 起点2
 	var epoi  = new BMap.Point(116.424374,39.914668);    // 终点
-	var myIcon = new BMap.Icon("./img/Mario.png", new BMap.Size(32, 70), {imageOffset: new BMap.Size(0, 0)});
+	var myIcon = new BMap.Icon("../img/Mario.png", new BMap.Size(32, 70), {imageOffset: new BMap.Size(0, 0)});
 	function initLine(){
 		bounds = new Array();
 		linesPoints = new Array();
@@ -63,12 +63,12 @@
 			var myIcon;
 			// imgType:1的场合，为起点和终点的图；2的场合为车的图形
 			if(imgType == 1){
-				url = "./img/dest_markers.png";
+				url = "../img/dest_markers.png";
 				width = 42;
 				height = 34;
 				myIcon = new BMap.Icon(url,new BMap.Size(width, height),{offset: new BMap.Size(14, 32),imageOffset: new BMap.Size(0, 0 - index * height)});
 			}else{
-				url = "./img/trans_icons.png";
+				url = "../img/trans_icons.png";
 				width = 22;
 				height = 25;
 				var d = 25;
