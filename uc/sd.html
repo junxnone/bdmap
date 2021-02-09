@@ -104,7 +104,7 @@
 			if (route.getDistance(false) <= 0){continue;}
 			addPoints(route.getPath());
 			// 驾车线路
-			if(route.getRouteType() == BMAP_ROUTE_TYPE_DRIVING){
+			if(route.getRouteType() != BMAP_ROUTE_TYPE_WALKING){
 				map.addOverlay(new BMap.Polyline(route.getPath(), {strokeColor: "#0030ff",strokeOpacity:opacity,strokeWeight:6,enableMassClear:true}));
 			}else{
 			// 步行线路有可能为0
