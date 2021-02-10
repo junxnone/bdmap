@@ -19,17 +19,17 @@
 	map.centerAndZoom(new BMap.Point(121.417209,31.050675), 15);
 	var bounds = null;
 	var linesPoints = null;
-	var spoi1 = new BMap.Point(121.417209,31.050675);    // 起点1
-	var spoi2 = new BMap.Point(121.442074,31.000853);    // 起点2
+	var spoi1 = new BMap.Point(121.435355,30.998918);    // 起点1
+	var spoi2 = new BMap.Point(121.406429,31.096993);    // 起点2
 	var epoi  = new BMap.Point(121.409555,31.136889);    // 终点
 	var myIcon = new BMap.Icon("../img/Mario.png", new BMap.Size(32, 70), {imageOffset: new BMap.Size(0, 0)});
 	function initLine(){
 		bounds = new Array();
 		linesPoints = new Array();
 		map.clearOverlays();                                                    // 清空覆盖物
-		var driving3 = new BMap.TransitRoute(map,{onSearchComplete:drawLine});  // 驾车实例,并设置回调
+		var driving3 = new BMap.WalkingRoute(map,{onSearchComplete:drawLine});  // 驾车实例,并设置回调
 			driving3.search(spoi1, epoi);                                       // 搜索一条线路
-		var driving4 = new BMap.TransitRoute(map,{onSearchComplete:drawLine});  // 驾车实例,并设置回调
+		var driving4 = new BMap.WalkingRoute(map,{onSearchComplete:drawLine});  // 驾车实例,并设置回调
 			driving4.search(spoi2, epoi);                                       // 搜索一条线路
 	}
 	function run(){
