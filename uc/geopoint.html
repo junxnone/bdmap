@@ -37,9 +37,9 @@
 	}
 	setMapEvent();
 	addMapControl();
-	var myIcon = new BMap.Icon("../img/Mario.png", new BMap.Size(52, 52), {   
-		imageOffset: new BMap.Size(0, 0)  
-	});
+        var img = new Image();
+        img.src = '../img/Mario.png';
+	
 	$.get('../data/go.geojson', function(geojson) {
 
 		var geojsonOptions = {
@@ -50,10 +50,29 @@
 			max: 354551,
 			draw: 'intensity'
 		}
-
+	
 		var geojsonDataSet = mapv.geojson.getDataSet(geojson);
 		console.log(geojsonDataSet);
-		var mapvLayer = new mapv.baiduMapLayer(map, geojsonDataSet, geojsonOptions);
+		var data = [];
+		var darray = geojsonDataSet._data
+		var data_len = darray.length
+		while(data_len--){
+			data.push({
+				geometry: {
+					type: 'Point',
+					coordinates: [darray[data_len].geometry.coordinates[0], darray[data_len].geometry.coordinates[1]]
+				},
+				deg: 0,
+				icon: img
+			});
+			
+		}
+		var rb_dataSet = new mapv.Dataset(data)
+		var rbOptions = {
+			draw: 'icon'
+		}
+		
+		var mapvLayer = new mapv.baiduMapLayer(map, rb_dataSet, rbOptions);
 	});
 
 </script>
