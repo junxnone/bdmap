@@ -18,18 +18,18 @@
 	var map = new BMap.Map("allmap");
 	var point = new BMap.Point(121.39, 31.09);
 	map.centerAndZoom(point, 15);  
-  $.get('data/point.geojson', function(geojson) {
+	$.get('../data/point.geojson', function(geojson) {
 
-    var geojsonOptions = {
-        gradient: {
-            0: 'rgba(55, 50, 250, 0.4)',
-            1: 'rgba(55, 50, 250, 1)'
-        },
-        max: 354551,
-        draw: 'intensity'
-    }
+	var geojsonOptions = {
+	gradient: {
+	    0: 'rgba(55, 50, 250, 0.4)',
+	    1: 'rgba(55, 50, 250, 1)'
+	},
+	max: 354551,
+	draw: 'intensity'
+	}
 
-    var geojsonDataSet = mapv.geojson.getDataSet(geojson);
-    var mapvLayer = new mapv.baiduMapLayer(map, geojsonDataSet, geojsonOptions);
+	var geojsonDataSet = mapv.geojson.getDataSet(geojson);
+	var mapvLayer = new mapv.baiduMapLayer(map, geojsonDataSet, geojsonOptions);
 
 </script>
