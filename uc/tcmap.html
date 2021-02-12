@@ -18,4 +18,11 @@
 	var map = new BMap.Map("allmap");
 	var point = new BMap.Point(121.39, 31.09);
 	map.centerAndZoom(point, 15);  
+	function setMapEvent(){
+		map.enableScrollWheelZoom();
+		map.enableKeyboard();
+		map.enableDragging();
+		map.enableDoubleClickZoom()
+	}
+	setMapEvent();
 </script>
