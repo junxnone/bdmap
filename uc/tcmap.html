@@ -24,5 +24,11 @@
 		map.enableDragging();
 		map.enableDoubleClickZoom()
 	}
+	function addClickHandler(target,window){
+	target.addEventListener("click",function(){
+		target.openInfoWindow(window);
+		});
+	}
 	setMapEvent();
+	addClickHandler();
 </script>
