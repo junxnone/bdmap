@@ -48,11 +48,11 @@
 			    1: 'rgba(55, 50, 250, 1)'
 			},
 			max: 354551,
-			draw: 'sample'
+			draw: 'intensity'
 		}
 
 		var geojsonDataSet = mapv.geojson.getDataSet(geojson);
-		console.log(geojsonDataSet._data);
+		console.log(geojsonDataSet._data[0]);
 		var mapvLayer = new mapv.baiduMapLayer(map, geojsonDataSet, geojsonOptions);
 	});
 
