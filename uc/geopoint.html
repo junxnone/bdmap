@@ -16,8 +16,8 @@
 <script type="text/javascript">
 	// 百度地图API功能
 	var map = new BMap.Map("allmap");
-	//var point = new BMap.Point(116.404, 39.915);
-  
+	var point = new BMap.Point(121.39, 31.09);
+	map.centerAndZoom(point, 15);  
   $.get('data/point.geojson', function(geojson) {
 
     var geojsonOptions = {
