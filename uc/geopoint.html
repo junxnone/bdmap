@@ -37,7 +37,9 @@
 	}
 	setMapEvent();
 	addMapControl();
-	
+	var myIcon = new BMap.Icon("../img/Mario.png", new BMap.Size(52, 52), {   
+		imageOffset: new BMap.Size(0, 0)  
+	});
 	$.get('../data/go.geojson', function(geojson) {
 
 		var geojsonOptions = {
@@ -46,7 +48,7 @@
 			    1: 'rgba(55, 50, 250, 1)'
 			},
 			max: 354551,
-			draw: 'intensity'
+			draw: 'myIcon'
 		}
 
 		var geojsonDataSet = mapv.geojson.getDataSet(geojson);
