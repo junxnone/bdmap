@@ -52,7 +52,7 @@
 		}
 
 		var geojsonDataSet = mapv.geojson.getDataSet(geojson);
-		console.log(geojsonDataSet);
+		console.log(geojsonDataSet[0]);
 		var mapvLayer = new mapv.baiduMapLayer(map, geojsonDataSet, geojsonOptions);
 	});
 
