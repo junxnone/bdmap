@@ -94,6 +94,10 @@
 		}
 	});
 	console.log(pts2);
+	var carMk1 = new BMap.Marker(pts[0], {
+	    icon: myIcon
+	});
+	map.addOverlay(carMk1);
 	function track_1(t){
 		var paths = pts.length; //获得有几个点
 		var polyline = new BMap.Polyline(pts, {
@@ -103,10 +107,10 @@
 		}); //创建折线
 		 map.addOverlay(polyline); //增加折线
 
-		var carMk = new BMap.Marker(pts[0], {
-		    icon: myIcon
-		});
-		map.addOverlay(carMk);
+// 		var carMk = new BMap.Marker(pts[0], {
+// 		    icon: myIcon
+// 		});
+// 		map.addOverlay(carMk);
 		if (t == 1) {
 			carMk.setPosition(pts[paths-1]);
 			map.removeOverlay(carMk);
@@ -115,7 +119,7 @@
 		i = 0;
 
 		function resetMkPoint(i) {
-		    carMk.setPosition(pts[i]);
+		    carMk1.setPosition(pts[i]);
 		    if (i < paths) {
 			setTimeout(function () {
 			    i++;
@@ -195,7 +199,7 @@
 			track_2(0);
 		},1000)	
 		setTimeout(function () {
-			track_1(1);
+			map.removeOverlay(carMk1);
 			track_2(1);
 			track_3(0);
 		},5000)		
