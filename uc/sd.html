@@ -38,11 +38,15 @@
 	setMapEvent();
 	addMapControl();
 
-	var myIcon = new BMap.Icon("../img/xzrs.png", new BMap.Size(52, 52), {    //小车图片
+	var xzIcon = new BMap.Icon("../img/xzrs.png", new BMap.Size(30, 30), {    //小车图片
 		//offset: new BMap.Size(0, -5),    //相当于CSS精灵
 		imageOffset: new BMap.Size(0, 0)    //图片的偏移量。为了是图片底部中心对准坐标点。
 	});
 	var yzIcon = new BMap.Icon("../img/yzrs.png", new BMap.Size(30, 30), {    //小车图片
+		//offset: new BMap.Size(0, -5),    //相当于CSS精灵
+		imageOffset: new BMap.Size(0, 0)    //图片的偏移量。为了是图片底部中心对准坐标点。
+	});
+	var xzyzIcon = new BMap.Icon("../img/xzyz.png", new BMap.Size(30, 45), {    //小车图片
 		//offset: new BMap.Size(0, -5),    //相当于CSS精灵
 		imageOffset: new BMap.Size(0, 0)    //图片的偏移量。为了是图片底部中心对准坐标点。
 	});
@@ -101,7 +105,7 @@
 
 	function track_1(t){
 		var carMk1 = new BMap.Marker(pts[0], {
-			icon: myIcon
+			icon: xzIcon
 		});
 		map.addOverlay(carMk1);
 		var paths1 = pts.length; //获得有几个点
@@ -169,7 +173,7 @@
 		map.addOverlay(polyline); //增加折线
 
 		var carMk = new BMap.Marker(pts3[0], {
-		    icon: myIcon
+		    icon: xzyzIcon
 		});
 		map.addOverlay(carMk);
 		i = 0;
