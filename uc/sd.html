@@ -42,6 +42,10 @@
 		//offset: new BMap.Size(0, -5),    //相当于CSS精灵
 		imageOffset: new BMap.Size(0, 0)    //图片的偏移量。为了是图片底部中心对准坐标点。
 	});
+	var yzIcon = new BMap.Icon("../img/yzrs.png", new BMap.Size(30, 30), {    //小车图片
+		//offset: new BMap.Size(0, -5),    //相当于CSS精灵
+		imageOffset: new BMap.Size(0, 0)    //图片的偏移量。为了是图片底部中心对准坐标点。
+	});
 	var pts = []
 	$.get('../data/sd1.geojson', function(geojson) {
 	
@@ -127,7 +131,7 @@
 	}
 	function track_2(t){
 		var carMk2 = new BMap.Marker(pts2[0], {
-		  icon: myIcon
+		  icon: yzIcon
 		});
 		map.addOverlay(carMk2);
 		var paths2 = pts2.length; //获得有几个点
