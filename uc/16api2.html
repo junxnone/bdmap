@@ -37,8 +37,8 @@
 			var carMk = new BMap.Marker(pts[0],{icon:myIcon});
 			map.addOverlay(carMk);
 			i=0;
+			console.log(pts);
 			function resetMkPoint(i){
-				console.log(pts[i]);
 				carMk.setPosition(pts[i]);
 				if(i < paths){
 					setTimeout(function(){
