@@ -117,7 +117,7 @@
 			    resetMkPoint(i);
 			}, 100);
 		    } else {
-			    if (t > 20) {
+			    if (t > 5) {
 			    	map.removeOverlay(carMk);
 			    }
 		    }
@@ -149,7 +149,7 @@
 			    resetMkPoint(i);
 			}, 1000);
 		    } else {
-			    if (t > 20) {
+			    if (t > 5) {
 			    	map.removeOverlay(carMk);
 			    }
 		    }
@@ -181,7 +181,7 @@
 			    resetMkPoint(i);
 			}, 1000);
 		    } else {
-			    if (t > 20) {
+			    if (t > 5) {
 			    	map.removeOverlay(carMk);
 			    }
 		    }
@@ -192,7 +192,7 @@
 	}
 	var t = 0;
 	window.run = function () {
-		if (t < 20){
+		if (t < 5){
 			track_1(t);
 			track_2(t);
 		} else {
