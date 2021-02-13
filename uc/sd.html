@@ -95,6 +95,9 @@
 	});
 	console.log(pts2);
 	function track_1(t){
+		if (t == 1) {
+			map.removeOverlay(carMk);
+		}
 		var paths = pts.length; //获得有几个点
 		var polyline = new BMap.Polyline(pts, {
 		    strokeColor: "blue",
@@ -116,16 +119,16 @@
 			    i++;
 			    resetMkPoint(i);
 			}, 100);
-		    } else {
-			    if (t == 1) {
-				map.removeOverlay(carMk);
-			    }		    }
+		    }
 		}
 		setTimeout(function () {
 		    resetMkPoint(5);
 		}, 100)
 	}
 	function track_2(t){
+		if (t == 1) {
+			map.removeOverlay(carMk);
+		}
 		var paths = pts2.length; //获得有几个点
 		var polyline = new BMap.Polyline(pts2, {
 		    strokeColor: "blue",
@@ -146,12 +149,8 @@
 			setTimeout(function () {
 			    i++;
 			    resetMkPoint(i);
-			}, 500);
-		    } else {
-			    if (t == 1) {
-				map.removeOverlay(carMk);
-			    }
-		    }
+			}, 400);
+		    } 
 		}
 		setTimeout(function () {
 		    resetMkPoint(1);
