@@ -49,12 +49,20 @@
 		var data = [];
 		var darray = geojsonDataSet._data
 		var data_len = darray.length
-		var carMk = new BMap.Marker(darray[0],{icon:myIcon});
+		while(data_len--){
+			data.push({
+				lng: darray[data_len].geometry.coordinates[0]，
+				lat: darray[data_len].geometry.coordinates[1]
+			});
+		}
+		
+		var carMk = new BMap.Marker(data[0],{icon:myIcon});
 		map.addOverlay(carMk);
+		dlen = darray.length
 		i=0;
 		function resetMkPoint(i){
-			carMk.setPosition(darray[i]);
-			if(i < data_len){
+			carMk.setPosition(data[i]);
+			if(i < dlen){
 				setTimeout(function(){
 					i++;
 					resetMkPoint(i);
