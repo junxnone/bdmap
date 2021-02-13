@@ -98,22 +98,29 @@
 	    icon: myIcon
 	});
 	map.addOverlay(carMk1);
+	var paths1 = pts.length; //获得有几个点
+	var polyline1 = new BMap.Polyline(pts, {
+	    strokeColor: "blue",
+	    strokeWeight: 2,
+	    strokeOpacity: 0.5
+	}); //创建折线
+	
+	map.addOverlay(polyline1); //增加折线
 	var carMk2 = new BMap.Marker(pts2[0], {
 	    icon: myIcon
 	});
 	map.addOverlay(carMk2);
+	var paths2 = pts2.length; //获得有几个点
+	var polyline2 = new BMap.Polyline(pts2, {
+	    strokeColor: "blue",
+	    strokeWeight: 2,
+	    strokeOpacity: 0.5
+	}); //创建折线
+	map.addOverlay(polyline2); //增加折线
+
+	
 	function track_1(t){
-		var paths = pts.length; //获得有几个点
-		var polyline = new BMap.Polyline(pts, {
-		    strokeColor: "blue",
-		    strokeWeight: 2,
-		    strokeOpacity: 0.5
-		}); //创建折线
-		map.addOverlay(polyline); //增加折线
-		map.addOverlay(carMk1);
-
 		i = 0;
-
 		function resetMkPoint(i) {
 		    carMk1.setPosition(pts[i]);
 		    if (i < paths) {
@@ -128,17 +135,7 @@
 		}, 100)
 	}
 	function track_2(t){
-		var paths = pts2.length; //获得有几个点
-		var polyline = new BMap.Polyline(pts2, {
-		    strokeColor: "blue",
-		    strokeWeight: 2,
-		    strokeOpacity: 0.5
-		}); //创建折线
-		map.addOverlay(polyline); //增加折线
-		map.addOverlay(carMk2);
-
 		i = 0;
-
 		function resetMkPoint(i) {
 		    carMk2.setPosition(pts2[i]);
 		    if (i < paths) {
