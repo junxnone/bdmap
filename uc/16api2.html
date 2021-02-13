@@ -38,6 +38,7 @@
 			map.addOverlay(carMk);
 			i=0;
 			function resetMkPoint(i){
+				console.log(pts[i]);
 				carMk.setPosition(pts[i]);
 				if(i < paths){
 					setTimeout(function(){
