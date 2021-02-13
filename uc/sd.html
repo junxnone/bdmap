@@ -147,6 +147,9 @@
 		setTimeout(function () {
 		    resetMkPoint(1);
 		}, 100)
+		setTimeout(function () {
+			map.removeOverlay(carMk1);
+		},5000)
 	}
 	function track_3(t){
 		var paths = pts3.length; //获得有几个点
@@ -175,6 +178,9 @@
 		setTimeout(function () {
 		    resetMkPoint(1);
 		}, 100)
+		setTimeout(function () {
+			map.removeOverlay(carMk2);
+		},5000)
 	}
 
 	function run_track(){
@@ -186,7 +192,7 @@
 			map.removeOverlay(carMk1);
 			map.removeOverlay(carMk2);
 			track_3(0);
-		},5000)		
+		},5000)
 	}
 	window.run = function () {
 		run_track();
