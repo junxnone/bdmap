@@ -113,7 +113,7 @@
 		    strokeWeight: 2,
 		    strokeOpacity: 0.5
 		}); //创建折线
-		 map.addOverlay(polyline); //增加折线
+		map.addOverlay(polyline); //增加折线
 
 		var carMk = new BMap.Marker(pts2[0], {
 		    icon: myIcon
@@ -134,9 +134,15 @@
 		    resetMkPoint(1);
 		}, 200)
 	}
+	var t = 0;
 	window.run = function () {
-		track_1();
-		track_2();
+		if (t < 10) {
+			track_1();
+		}
+		if (t < 20) {
+			track_2();
+		}
+		t++;
 	}
 
 	setTimeout(function () {
