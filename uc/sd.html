@@ -194,8 +194,12 @@
 
 	function run_track(){
 		track_1(t);
-		track_2(t);
-		track_3(t);
+		setTimeout(function () {
+			track_2(t);
+		},1000)	
+		setTimeout(function () {
+			track_3(t);
+		},2000)		
 	}
 	window.run = function () {
 		run_track();
