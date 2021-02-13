@@ -191,14 +191,14 @@
 		}, 200)
 	}
 	var t = 0;
+
+	function run_track(){
+		track_1(t);
+		track_2(t);
+		track_3(t);
+	}
 	window.run = function () {
-		if (t < 5){
-			track_1(t);
-			track_2(t);
-		} else {
-			track_3(t);
-		}
-		t++;
+		run_track();
 	}
 
 	setTimeout(function () {
