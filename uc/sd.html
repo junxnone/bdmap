@@ -45,9 +45,10 @@
 	$.get('../data/go.geojson', function(geojson) {
 	
 		var geojsonDataSet = mapv.geojson.getDataSet(geojson);
-		console.log(geojsonDataSet);
 		darray = geojsonDataSet._data
 	});
+	console.log(darray);
+
 	var data_len = darray.length
 
     	window.run = function () {
