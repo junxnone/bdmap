@@ -52,7 +52,8 @@
 		while(data_len--){
 			data.push({
 				lng: darray[data_len].geometry.coordinates[0],
-				lat: darray[data_len].geometry.coordinates[1]
+				lat: darray[data_len].geometry.coordinates[1],
+				of: "inner"
 			});
 		}
 		
