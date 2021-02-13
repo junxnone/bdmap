@@ -54,8 +54,7 @@
 	});
 	console.log(pts);
 
-
-    	window.run = function () {
+	function track_1(){
 		var paths = pts.length; //获得有几个点
 		var polyline = new BMap.Polyline(pts, {
 		    strokeColor: "blue",
@@ -82,9 +81,12 @@
 		setTimeout(function () {
 		    resetMkPoint(5);
 		}, 100)
-    }
+	}
+	window.run = function () {
+		track_1();
+	}
 
-    setTimeout(function () {
-        run();
-    }, 1500);
+	setTimeout(function () {
+		run();
+	}, 1500);
 </script>
