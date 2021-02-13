@@ -117,9 +117,7 @@
 			    resetMkPoint(i);
 			}, 100);
 		    } else {
-			    if (t > 5) {
-			    	map.removeOverlay(carMk);
-			    }
+			map.removeOverlay(carMk);
 		    }
 		}
 		setTimeout(function () {
@@ -149,14 +147,12 @@
 			    resetMkPoint(i);
 			}, 1000);
 		    } else {
-			    if (t > 5) {
-			    	map.removeOverlay(carMk);
-			    }
+			map.removeOverlay(carMk);
 		    }
 		}
 		setTimeout(function () {
 		    resetMkPoint(1);
-		}, 200)
+		}, 100)
 	}
 	function track_3(t){
 		var paths = pts3.length; //获得有几个点
@@ -180,15 +176,11 @@
 			    i++;
 			    resetMkPoint(i);
 			}, 1000);
-		    } else {
-			    if (t > 5) {
-			    	map.removeOverlay(carMk);
-			    }
 		    }
 		}
 		setTimeout(function () {
 		    resetMkPoint(1);
-		}, 200)
+		}, 100)
 	}
 	var t = 0;
 
