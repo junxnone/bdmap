@@ -77,8 +77,24 @@
 		}
 	});
 	console.log(pts2);
+	var pts3 = []
+	$.get('../data/sd3.geojson', function(geojson) {
 	
-	function track_1(){
+		var geojsonDataSet = mapv.geojson.getDataSet(geojson);
+		darray = geojsonDataSet._data
+		var data_len = darray.length
+		for (var j = 0; j < data_len; j++) {
+			var result = gcoord.transform(
+				[darray[j].geometry.coordinates[0],  darray[j].geometry.coordinates[1]],    // 经纬度坐标
+				gcoord.WGS84,               // 当前坐标系
+				gcoord.BD09                 // 目标坐标系
+			);
+			var pt = new BMap.Point(result[0], result[1]);
+			pts3.push(pt);
+		}
+	});
+	console.log(pts2);
+	function track_1(t){
 		var paths = pts.length; //获得有几个点
 		var polyline = new BMap.Polyline(pts, {
 		    strokeColor: "blue",
@@ -100,13 +116,17 @@
 			    i++;
 			    resetMkPoint(i);
 			}, 100);
+		    } else {
+			    if (t > 20) {
+			    	map.removeOverlay(carMk);
+			    }
 		    }
 		}
 		setTimeout(function () {
 		    resetMkPoint(5);
 		}, 100)
 	}
-	function track_2(){
+	function track_2(t){
 		var paths = pts2.length; //获得有几个点
 		var polyline = new BMap.Polyline(pts2, {
 		    strokeColor: "blue",
@@ -129,7 +149,41 @@
 			    resetMkPoint(i);
 			}, 1000);
 		    } else {
-			    map.removeOverlay(carMk);
+			    if (t > 20) {
+			    	map.removeOverlay(carMk);
+			    }
+		    }
+		}
+		setTimeout(function () {
+		    resetMkPoint(1);
+		}, 200)
+	}
+	function track_3(t){
+		var paths = pts3.length; //获得有几个点
+		var polyline = new BMap.Polyline(pts3, {
+		    strokeColor: "blue",
+		    strokeWeight: 2,
+		    strokeOpacity: 0.5
+		}); //创建折线
+		map.addOverlay(polyline); //增加折线
+
+		var carMk = new BMap.Marker(pts3[0], {
+		    icon: myIcon
+		});
+		map.addOverlay(carMk);
+		i = 0;
+
+		function resetMkPoint(i) {
+		    carMk.setPosition(pts3[i]);
+		    if (i < paths) {
+			setTimeout(function () {
+			    i++;
+			    resetMkPoint(i);
+			}, 1000);
+		    } else {
+			    if (t > 20) {
+			    	map.removeOverlay(carMk);
+			    }
 		    }
 		}
 		setTimeout(function () {
@@ -138,11 +192,11 @@
 	}
 	var t = 0;
 	window.run = function () {
-		if (t < 10) {
-			track_1();
-		}
-		if (t < 20) {
-			track_2();
+		if (t < 20){
+			track_1(t);
+			track_2(t);
+		} else {
+			track_3(t);
 		}
 		t++;
 	}
