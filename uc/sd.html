@@ -117,8 +117,9 @@
 			    resetMkPoint(i);
 			}, 100);
 		    } else {
-			map.removeOverlay(carMk);
-		    }
+			    if (t == 1) {
+				map.removeOverlay(carMk);
+			    }		    }
 		}
 		setTimeout(function () {
 		    resetMkPoint(5);
@@ -147,7 +148,9 @@
 			    resetMkPoint(i);
 			}, 1000);
 		    } else {
-			map.removeOverlay(carMk);
+			    if (t == 1) {
+				map.removeOverlay(carMk);
+			    }
 		    }
 		}
 		setTimeout(function () {
@@ -175,23 +178,24 @@
 			setTimeout(function () {
 			    i++;
 			    resetMkPoint(i);
-			}, 1000);
+			}, 100);
 		    }
 		}
 		setTimeout(function () {
 		    resetMkPoint(1);
 		}, 100)
 	}
-	var t = 0;
 
 	function run_track(){
-		track_1(t);
+		track_1(0);
 		setTimeout(function () {
-			track_2(t);
+			track_2(0);
 		},1000)	
 		setTimeout(function () {
-			track_3(t);
-		},2000)		
+			track_1(1);
+			track_2(1);
+			track_3(0);
+		},3000)		
 	}
 	window.run = function () {
 		run_track();
