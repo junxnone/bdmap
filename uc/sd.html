@@ -53,7 +53,19 @@
 		}
 	});
 	console.log(pts);
-
+	var pts2 = []
+	$.get('../data/sd2.geojson', function(geojson) {
+	
+		var geojsonDataSet = mapv.geojson.getDataSet(geojson);
+		darray = geojsonDataSet._data
+		var data_len = darray.length
+		for (var j = 0; j < data_len; j++) {
+		    var pt = new BMap.Point(darray[j].geometry.coordinates[0], darray[j].geometry.coordinates[1]);
+		    pts2.push(pt);
+		}
+	});
+	console.log(pts2);
+	
 	function track_1(){
 		var paths = pts.length; //获得有几个点
 		var polyline = new BMap.Polyline(pts, {
@@ -82,8 +94,37 @@
 		    resetMkPoint(5);
 		}, 100)
 	}
+	function track_2(){
+		var paths = pts2.length; //获得有几个点
+		var polyline = new BMap.Polyline(pts2, {
+		    strokeColor: "blue",
+		    strokeWeight: 2,
+		    strokeOpacity: 0.5
+		}); //创建折线
+		 map.addOverlay(polyline); //增加折线
+
+		var carMk = new BMap.Marker(pts2[0], {
+		    icon: myIcon
+		});
+		map.addOverlay(carMk);
+		i = 0;
+
+		function resetMkPoint(i) {
+		    carMk.setPosition(pts2[i]);
+		    if (i < paths) {
+			setTimeout(function () {
+			    i++;
+			    resetMkPoint(i);
+			}, 100);
+		    }
+		}
+		setTimeout(function () {
+		    resetMkPoint(5);
+		}, 100)
+	}
 	window.run = function () {
 		track_1();
+		track_2();
 	}
 
 	setTimeout(function () {
