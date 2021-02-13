@@ -41,15 +41,15 @@
 		//offset: new BMap.Size(0, -5),    //相当于CSS精灵
 		imageOffset: new BMap.Size(0, 0)    //图片的偏移量。为了是图片底部中心对准坐标点。
 	});
-	
+	var darray = []
 	$.get('../data/go.geojson', function(geojson) {
 	
 		var geojsonDataSet = mapv.geojson.getDataSet(geojson);
 		console.log(geojsonDataSet);
-		var data = [];
-		var darray = geojsonDataSet._data
-		var data_len = darray.length
+		darray = geojsonDataSet._data
 	});
+	var data_len = darray.length
+
     	window.run = function () {
 		var pts = []; //通过驾车实例，获得一系列点的数组
 		for (var j = 0; j < data_len; j++) {
