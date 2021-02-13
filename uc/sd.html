@@ -97,6 +97,7 @@
 	function track_1(t){
 		if (t == 1) {
 			map.removeOverlay(carMk);
+			return 0;
 		}
 		var paths = pts.length; //获得有几个点
 		var polyline = new BMap.Polyline(pts, {
@@ -128,6 +129,7 @@
 	function track_2(t){
 		if (t == 1) {
 			map.removeOverlay(carMk);
+			return 0;
 		}
 		var paths = pts2.length; //获得有几个点
 		var polyline = new BMap.Polyline(pts2, {
