@@ -121,6 +121,9 @@
 		setTimeout(function () {
 		    resetMkPoint(5);
 		}, 100)
+		setTimeout(function () {
+			map.removeOverlay(carMk1);
+		},5000)
 	}
 	function track_2(t){
 		var carMk2 = new BMap.Marker(pts2[0], {
@@ -148,8 +151,9 @@
 		    resetMkPoint(1);
 		}, 100)
 		setTimeout(function () {
-			map.removeOverlay(carMk1);
+			map.removeOverlay(carMk2);
 		},5000)
+
 	}
 	function track_3(t){
 		var paths = pts3.length; //获得有几个点
@@ -178,9 +182,7 @@
 		setTimeout(function () {
 		    resetMkPoint(1);
 		}, 100)
-		setTimeout(function () {
-			map.removeOverlay(carMk2);
-		},5000)
+
 	}
 
 	function run_track(){
