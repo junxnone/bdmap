@@ -41,23 +41,21 @@
 		//offset: new BMap.Size(0, -5),    //相当于CSS精灵
 		imageOffset: new BMap.Size(0, 0)    //图片的偏移量。为了是图片底部中心对准坐标点。
 	});
-	var darray = []
+	var pts = []
 	$.get('../data/go.geojson', function(geojson) {
 	
 		var geojsonDataSet = mapv.geojson.getDataSet(geojson);
 		darray = geojsonDataSet._data
-	});
-	console.log(darray);
-
-	var data_len = darray.length
-
-    	window.run = function () {
-		var pts = []; //通过驾车实例，获得一系列点的数组
+		var data_len = darray.length
 		for (var j = 0; j < data_len; j++) {
 		    var pt = new BMap.Point(darray[j].geometry.coordinates[0], darray[j].geometry.coordinates[1]);
 		    pts.push(pt);
 		}
-		console.log(pts);
+	});
+	console.log(pts);
+
+
+    	window.run = function () {
 		var paths = pts.length; //获得有几个点
 		var polyline = new BMap.Polyline(pts, {
 		    strokeColor: "blue",
